@@ -17,8 +17,7 @@
 // warnTheSheep(["sheep", "wolf", "sheep", "sheep", "sheep", "sheep", "sheep"]) === "Oi! Sheep number 5! You are about to be eaten by a wolf!"
 // ```
 
-// // try agin and use the reverse approach 
-
+// // try agin and use the reverse approach
 
 // var herdOfSheep = ['sheep', 'sheep', 'sheep', 'sheep', 'sheep', 'wolf', 'sheep', 'sheep']
 
@@ -53,7 +52,7 @@
 //                 console.log(array[4].toString() + " number 4! You are about to be eaten by a wolf!")
 //                 array.unshift('sheep');
 //                 array.pop();
-          
+
 //         }
 //       }
 //     }
@@ -69,43 +68,55 @@
 
 var array = ["sheep", "sheep", "wolf", "sheep", "sheep"];
 
-var one = ["sheep", "wolf", "sheep"]
+var one = ["sheep", "wolf", "sheep"];
 one.length; // 3
 one.length - 1; // 2 sheep
-one.indexOf('wolf'); // 1
+one.indexOf("wolf"); // 1
 
 // 1
 // Number of sheep - index of wolf => sheep no.
 
-var five = ["sheep", "wolf", "sheep", "sheep", "sheep", "sheep", "sheep"]
+var five = ["sheep", "wolf", "sheep", "sheep", "sheep", "sheep", "sheep"];
 five.length; // 7
 five.length - 1; // 6 sheep
-five.indexOf('wolf'); // 1
+five.indexOf("wolf"); // 1
 
 // 5
 // Number of sheep - index of wolf => sheep no.
 
-var one = ["sheep", "sheep", "sheep", "sheep", "wolf", "sheep", "sheep", "sheep"]
+var one = [
+  "sheep",
+  "sheep",
+  "sheep",
+  "sheep",
+  "wolf",
+  "sheep",
+  "sheep",
+  "sheep"
+];
 one.length; // 8
 one.length - 1; // 7 sheep
-one.indexOf('wolf'); // 4
+one.indexOf("wolf"); // 4
 
 // 3
 // Number of sheep - index of wolf => sheep no.
 
+const warnTheSheep = array => {
+  if (array.indexOf("wolf") === array.length - 1) {
+    return "Pls go away and stop eating my sheep";
+  } else {
+    var sheepNumber = array.length - 1 - array.indexOf("wolf");
+    return (
+      "Oi! Sheep number " +
+      sheepNumber +
+      "! You are about to be eaten by a wolf!"
+    );
+  }
+};
 
-var warnTheSheep = function(array) {
-    if (array.indexOf('wolf') === (array.length - 1)) {
-        return 'Pls go away and stop eating my sheep';
-    } else {
-        var sheepNumber = (array.length -1) - (array.indexOf('wolf'));
-        return 'Oi! Sheep number ' + sheepNumber + '! You are about to be eaten by a wolf!';
-    }
-}
-
-console.log(warnTheSheep(["sheep", "wolf", "sheep", "sheep", "sheep", "sheep", "sheep"]));
-
-
+console.log(
+  warnTheSheep(["sheep", "wolf", "sheep", "sheep", "sheep", "sheep", "sheep"])
+);
 
 // if (herdOfSheep.indexOf('wolf') === 5) {
 //   console.log(herdOfSheep[6].toString() + " number 5! You are about to be eaten by a wolf!")
@@ -143,9 +154,6 @@ console.log(warnTheSheep(["sheep", "wolf", "sheep", "sheep", "sheep", "sheep", "
 //   }
 // }
 // }
-
-
-
 
 // for (var i = 0; i < herdOfSheep.length; i++) {
 //   var herd = herdOfSheep[i]
